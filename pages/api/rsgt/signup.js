@@ -7,8 +7,8 @@ export default async function handler(req, res) {
     return;
   }
 
-  const { firstName = '',lastName = '', mobileNumber = '', email = '', gender = '', standards = '', dob = '', medium = '', schoolorCollage = '', address = '' } = req.body;
-  const body = { firstName, lastName, mobileNumber, email, gender, standards, dob, medium, schoolorCollage, address };
+  const { firstName = '',lastName = '', mobileNumber = '', email = '', gender = '', standard = '', dob = '', medium = '', schoolorCollage = '', address = '' } = req.body;
+  const body = { firstName, lastName, mobileNumber, email, gender, standard, dob, medium, schoolorCollage, address };
   try {
     const db = await connectToDatabase();
     const collection = db.collection('users');
@@ -35,11 +35,11 @@ function getHtmlBody(body){
   <h1>New Signup Details</h1>
   <table>
     <tr>
-      <td><strong>Name:</strong></td>
+      <td><strong>First Name:</strong></td>
       <td>${body?.firstName}</td>
     </tr>
     <tr>
-      <td><strong>Name:</strong></td>
+      <td><strong>Last Name:</strong></td>
       <td>${body?.lastName}</td>
     </tr>
     <tr>
