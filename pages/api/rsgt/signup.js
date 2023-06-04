@@ -7,8 +7,8 @@ export default async function handler(req, res) {
     return;
   }
 
-  const { name = '', mobileNumber = '', email = '', gender = '', standards = '', dob = '', medium = '', schoolorCollage = '', address = '' } = req.body;
-  const body = { name, mobileNumber, email, gender, standards, dob, medium, schoolorCollage, address };
+  const { firstName = '',lastName = '', mobileNumber = '', email = '', gender = '', standards = '', dob = '', medium = '', schoolorCollage = '', address = '' } = req.body;
+  const body = { firstName, lastName, mobileNumber, email, gender, standards, dob, medium, schoolorCollage, address };
   try {
     const db = await connectToDatabase();
     const collection = db.collection('users');
@@ -36,39 +36,43 @@ function getHtmlBody(body){
   <table>
     <tr>
       <td><strong>Name:</strong></td>
-      <td>${body.name}</td>
+      <td>${body?.firstName}</td>
+    </tr>
+    <tr>
+      <td><strong>Name:</strong></td>
+      <td>${body?.lastName}</td>
     </tr>
     <tr>
       <td><strong>Mobile Number:</strong></td>
-      <td>${body.mobileNumber}</td>
+      <td>${body?.mobileNumber}</td>
     </tr>
     <tr>
       <td><strong>Email:</strong></td>
-      <td>${body.email}</td>
+      <td>${body?.email}</td>
     </tr>
     <tr>
       <td><strong>Gender:</strong></td>
-      <td>${body.gender}</td>
+      <td>${body?.gender}</td>
     </tr>
     <tr>
       <td><strong>Standard:</strong></td>
-      <td>${body.standard}</td>
+      <td>${body?.standard}</td>
     </tr>
     <tr>
       <td><strong>Date of Birth:</strong></td>
-      <td>${body.dob}</td>
+      <td>${body?.dob}</td>
     </tr>
     <tr>
       <td><strong>Medium:</strong></td>
-      <td>${body.medium}</td>
+      <td>${body?.medium}</td>
     </tr>
     <tr>
       <td><strong>School or College:</strong></td>
-      <td>${body.schoolorCollage}</td>
+      <td>${body?.schoolorCollage}</td>
     </tr>
     <tr>
       <td><strong>Address:</strong></td>
-      <td>${body.address}</td>
+      <td>${body?.address}</td>
     </tr>
   </table>
 `
